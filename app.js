@@ -7,13 +7,17 @@
   LunchCheckController.$inject = ['$scope'];
   function LunchCheckController($scope) {
     var styles = {};
-    styles.green = {
+    styles.greenColor = {
       "color" : "green",
-      "border" : "solid 1px green",
     };
-    styles.red = {
+    styles.redColor = {
       "color" : "red",
-      "border" : "solid 1px red",
+    }
+    styles.greenBorder = {
+      "border" : "solid 2px green",
+    };
+    styles.redBorder = {
+      "border" : "solid 2px red",
     }
 
     $scope.displayMessage = function () {
@@ -37,10 +41,12 @@
       }
       console.log("nbItems = " + nbItems);
       if(nbItems == 0){
-        $scope.myStyle = styles.red;
+        $scope.messageStyle = styles.redColor;
+        $scope.inputStyle = styles.redBorder;
       }
       else {
-        $scope.myStyle = styles.green;
+        $scope.messageStyle = styles.greenColor;
+        $scope.inputStyle = styles.greenBorder;
       }
       $scope.message = msg;
     };
